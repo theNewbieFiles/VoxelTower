@@ -1,0 +1,7 @@
+# Ignore IDE files
+.vscode/
+
+env/
+
+__pycache__/
+
