@@ -7,6 +7,7 @@ from States.InitLoadState.initLoadState import InitLoadState
 from States.MainMenuState.mainMenuState import MainMenuState
 from States.LoadGameState.loadGameState import LoadGameState
 from States.MainGameState.mainGameState import MainGameState
+from States.EndState.endState import Endstate
 
 class StateManager:
     
@@ -19,6 +20,7 @@ class StateManager:
         self.eventSystem.on(INITALIALIZING_DONE, self.mainMenu)
         self.eventSystem.on(MAIN_LOADING_STARTING, self.loadGameState)
         self.eventSystem.on(MAIN_LOADING_DONE, self.mainGameState)
+        self.eventSystem.on(ENDING_CREDITS_ENTERING, self.endState)
     
     
     def processStarting(self, data):
@@ -39,8 +41,12 @@ class StateManager:
     
     def pauseState(self, data):
         ...
+
+    def endState(self,data):
+        self.currentState.exiting()
+        self.currentState = Endstate(self.eventSystem, data)
         
-    #end state needed
+    #end state added
     
     def update(self):
         self.currentState.preUpdate()
