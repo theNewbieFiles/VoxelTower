@@ -7,7 +7,7 @@ from States.InitLoadState.initLoadState import InitLoadState
 from States.MainMenuState.mainMenuState import MainMenuState
 from States.LoadGameState.loadGameState import LoadGameState
 from States.MainGameState.mainGameState import MainGameState
-from States.EndState.endState import Endstate
+from States.EndState.endState import EndState
 
 class StateManager:
     
@@ -44,7 +44,7 @@ class StateManager:
 
     def endState(self,data):
         self.currentState.exiting()
-        self.currentState = Endstate(self.eventSystem, data)
+        self.currentState = EndState(self.eventSystem, data)
         
     #end state added
     
